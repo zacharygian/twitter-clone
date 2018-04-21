@@ -1,0 +1,8 @@
+<h1>Timeline</h1>
+
+<% @tweets.each do |tweet| %>
+  <h3>Tweet by:
+    <%= tweet.user.email %>
+  </h3>
+  <%= tweet.content %>
+<% end %>
