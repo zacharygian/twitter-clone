@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [ :show, :delete ]
+  before_action :set_tweet, only: [ :show, :destroy ]
 
 
 # User Stories
@@ -7,18 +7,19 @@ class TweetsController < ApplicationController
   def index
     @user = current_user
     @tweets = Tweet.all
-  end
-
-  def show
-    @user = current_user
-    # authorize @tweet
-  end
-
-  def new
     @tweet = Tweet.new
-    # authorize @tweet
-    @user = current_user
   end
+
+  # def show
+  #   @user = current_user
+  #   # authorize @tweet
+  # end
+
+  # def new
+  #   @tweet = Tweet.new
+  #   # authorize @tweet
+  #   @user = current_user
+  # end
 
   def create
     @tweet = Tweet.new(tweet_params)
@@ -28,13 +29,13 @@ class TweetsController < ApplicationController
     else
       render :new
     end
-    # authorize @event
+    # authorize @tweet
   end
 
   def destroy
     @tweet.destroy
     # authorize @tweet
-    # redirect_to dashboard_path
+    redirect_to tweets_path
   end
 
   private
@@ -44,7 +45,7 @@ class TweetsController < ApplicationController
   end
 
   def tweet_params
-    params.require(:tweet).permit(:user_id, :content, :created_at)
+    params.require(:tweet).permit(:content)
   end
 # A user can create a new tweet no more than 140 characters
 # A user can display his tweets or another user's tweets
