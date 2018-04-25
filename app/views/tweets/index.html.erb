@@ -2,7 +2,10 @@
 
 <% @tweets.each do |tweet| %>
   <p>Tweet by:
-    <%= tweet.user.username %> <%= tweet.content %>
+    <%= link_to user_path(tweet.user) do %>
+      <%= tweet.user.username %>
+    <% end %>
+    <%= tweet.content %>
   </p>
   <% if tweet.user.id == current_user.id %>
     <%= link_to tweet_path(tweet), :method => :delete, data: {:confirm => "Are you sure you want to delete your tweet?" } do %>
