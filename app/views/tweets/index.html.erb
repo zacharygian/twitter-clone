@@ -1,5 +1,7 @@
 <h1>Timeline</h1>
 
+<p>My tweets: <%= @user.tweets.count %> </p>
+
 <% @tweets.each do |tweet| %>
   <p>Tweet by:
     <%= link_to user_path(tweet.user) do %>
