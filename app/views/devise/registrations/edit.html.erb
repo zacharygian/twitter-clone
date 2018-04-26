@@ -14,6 +14,9 @@
           <%= f.input :last_name, placeholder: "Appleseed" %>
           <%= f.input :age, collection: 1..100 %>
           <%= f.input :biography, label: "Tell us a bit about yourself" %>
+          <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+          <%= f.input :password_confirmation, required: false %>
+          <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
           <%= f.button :submit, "Update" %>
         </div>
     </div>
