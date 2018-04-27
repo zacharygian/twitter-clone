@@ -51,6 +51,15 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
+  # Configuring action mailer for email confirmation on sign up
+  config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "127.0.0.1",
+    :port    => 25,
+    :domain  => 'yourdomain.com'
+  }
+
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
