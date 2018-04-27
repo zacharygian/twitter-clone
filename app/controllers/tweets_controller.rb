@@ -10,31 +10,19 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
-  # def show
-  #   @user = current_user
-  #   # authorize @tweet
-  # end
-
-  # def new
-  #   @tweet = Tweet.new
-  #   # authorize @tweet
-  #   @user = current_user
-  # end
-
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user = current_user
     if @tweet.save
       redirect_to tweets_path
     else
-      render :new
+      flash[:alert] = "Tweet is too long (maximum is 140 characters), please try again!"
+      redirect_to tweets_path
     end
-    # authorize @tweet
   end
 
   def destroy
     @tweet.destroy
-    # authorize @tweet
     redirect_to tweets_path
   end
 
