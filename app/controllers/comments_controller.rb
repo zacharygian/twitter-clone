@@ -1,14 +1,10 @@
 class CommentsController < ApplicationController
-  before_action :set_tweet, only: [ :new, :index, :create, :destroy ]
+  before_action :set_tweet, only: [ :index, :create, :destroy ]
   before_action :set_comment, only: [ :destroy ]
 
   def index
     @user = current_user
     @comments = Comment.all
-  end
-
-  def new
-    @user = current_user
     @comment = Comment.new
   end
 
@@ -21,7 +17,7 @@ class CommentsController < ApplicationController
       redirect_to tweet_comments_path
     else
       flash[:alert] = "Comment is too long (maximum is 140 characters), please try again!"
-      redirect_to new_tweet_comment_path
+      redirect_to tweet_comments_path
     end
   end
 
