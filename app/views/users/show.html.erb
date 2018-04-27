@@ -1,20 +1,24 @@
 <h1>User Profile for <%= @user.username %></h1>
 
-<% if @user.first_name %>
+<% if @user.avatar.url.present? %>
+  <%= image_tag @user.avatar, class: "avatar-picture" %>
+<% end %>
+
+<% if @user.first_name.present? %>
 <p>First Name: <%= @user.first_name %></p>
 <% end %>
 
-<% if @user.last_name %>
+<% if @user.last_name.present? %>
 <p>Last Name: <%= @user.last_name %></p>
 <% end %>
 
-<% if @user.age %>
+<% if @user.age.present? %>
 <p>Age: <%= @user.age %></p>
 <% end %>
 
 <p>Email: <%= @user.email %></p>
 
-<% if @user.biography %>
+<% if @user.biography.present? %>
 <p>Biography: <%= @user.biography %></p>
 <% end %>
 
