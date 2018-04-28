@@ -1,7 +1,13 @@
 <h1>User Profile for <%= @user.username %></h1>
+<p>Tweets: <%= @user.tweets.count %> </p>
+<p>Following: <%= @user.follow_count %></p>
+<p>Followers: <%= @user.followers_count %></p>
+
 
 <% if @user.avatar.url.present? %>
   <%= image_tag @user.avatar, class: "avatar-picture" %>
+<% else %>
+  <%= image_tag 'twitter_egg.png', class: "avatar-picture" %>
 <% end %>
 
 <% if @user.first_name.present? %>
@@ -27,3 +33,13 @@
       <p> Update my profile </p>
  <% end %>
 <% end %>
+
+<% if @user.id != current_user.id  %>
+  <% if @user.followed_by?(current_user) %>
+    <%= link_to "Unfollow", unfollow_user_path(@user) %>
+  <% else %>
+    <%= link_to "Follow", follow_user_path(@user) %>
+  <% end  %>
+<% end  %>
+
+<%= console %>
