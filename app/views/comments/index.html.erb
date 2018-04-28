@@ -10,6 +10,7 @@
   <% end %>
   </p>
 <% end %>
+<%= pluralize(@tweet.comments.count, "Comment") %>
 <%= simple_form_for [@tweet, @comment] do |f| %>
   <%= f.input :text, label: "Comment"  %>
   <%= f.button :submit, "Post Comment!" %>
