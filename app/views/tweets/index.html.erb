@@ -1,25 +1,29 @@
 <h1>Timeline</h1>
 
-<p>My tweets: <%= @user.tweets.count %> </p>
+<p>My tweets: <%= current_user.tweets.count %> </p>
+<p>Following: <%= current_user.follow_count %></p>
+<p>Followers: <%= current_user.followers_count %></p>
 
 <% @tweets.each do |tweet| %>
-  <%= link_to user_path(tweet.user) do %>
-    <%= image_tag default_image(tweet.user), class: "avatar-picture" %>
-  <% end %>
-  <p>Tweet by:
+  <% if tweet.user.followed_by?(current_user) || tweet.user.id == current_user.id %>
     <%= link_to user_path(tweet.user) do %>
-      <%= tweet.user.username %>
+    <%= image_tag default_image(tweet.user), class: "avatar-picture" %>
     <% end %>
-    <%= nice_date(tweet.created_at) %>
-    <%= tweet.content %>
-    <%= link_to "Add Comment", new_tweet_comment_path(tweet)%>
-    <% if tweet.comments.present? %>
-      <%= link_to "View Comments", tweet_comments_path(tweet)%>
-    <% end %>
-    <% if tweet.user.id == current_user.id %>
-      <%= link_to "Delete", tweet_path(tweet), :method => :delete, data: {:confirm => "Are you sure you want to delete your tweet?" } %>
-  <% end %>
+    <p>Tweet by:
+      <%= link_to user_path(tweet.user) do %>
+        <%= tweet.user.username %>
+      <% end %>
+      <%= nice_date(tweet.created_at) %>
+      <%= tweet.content %>
+      <%= link_to "Add Comment", tweet_comments_path(tweet)%>
+      <% if tweet.comments.present? %>
+        <%= link_to "#{tweet.comments.count} comments", tweet_comments_path(tweet)%>
+      <% end %>
+      <% if tweet.user.id == current_user.id %>
+        <%= link_to "Delete", tweet_path(tweet), :method => :delete, data: {:confirm => "Are you sure you want to delete your tweet?" } %>
+      <% end %>
   </p>
+  <% end %>
 <% end %>
 
 <div class="container">

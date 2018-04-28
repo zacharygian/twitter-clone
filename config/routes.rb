@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -11,5 +10,10 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :comments
   end
-  resources :users, only: [ :show ]
+  resources :users, only: [ :show ] do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
 end

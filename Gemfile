@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'mailcatcher'
+gem "acts_as_follower", github: "tcocca/acts_as_follower"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
