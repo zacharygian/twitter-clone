@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
-  before_action :find_user
+  before_action :find_user, except: [ :index ]
+
+  def index
+    @user = current_user
+    @users = User.all
+  end
 
   def show
-    # @user = User.find(params[:id])
   end
 
   def follow

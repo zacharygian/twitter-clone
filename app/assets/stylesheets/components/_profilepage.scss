@@ -1,8 +1,143 @@
+.profile-card {
+  position: sticky;
+  top: 90px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  justify-content: center;
+  border: solid 1px black;
+  margin: 0 auto;
+  width: 500px;
+  height: auto;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  background-color: cyan;
+  text-align: center;
+  padding: 30px;
+}
+
+.profile-picture {
+  width: 130px;
+  height: auto;
+  border-radius: 50%;
+  border-color: #eff2f1;
+  border-width: 1px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
 .avatar-picture {
   width: 50px;
   height: auto;
   border-radius: 50%;
   border-color: #eff2f1;
   border-width: 1px;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-right: 4px;
+}
+
+.boxer {
+  text-align: center;
+  border-style: solid;
+  border-width: 2px;
+  border-radius:2px;
+  border-color: white;
+  margin: 50px 20px;
+  padding: 10px 10px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.boxer table {
+  border-collapse: separate;
+  border-spacing: 50px 0;
+}
+
+.profile-card table {
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 50px 0;
+}
+
+.separator {
+  border-right: 1px solid #eff2f1;
+}
+
+.card_fonts {
+  text-decoration: none !important;
+  p {
+  color: #747B86;
+  padding-left: 5px;
+  }
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.follow-button {
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #F15A23;
+  color: white;
+  font-weight: bolder;
+  opacity: 0.8;
+  margin: 10px;
+  &:hover {
+    text-decoration: none;
+    opacity: 1;
+    color: white;
+  }
+}
+
+.timeline-button {
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  font-weight: bolder;
+  opacity: 0.8;
+  margin: 10px;
+  &:hover {
+    text-decoration: none;
+    opacity: 1;
+    color: white;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.user-box {
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 2px;
+  margin: 20px;
+  padding: 10px;
+  background-color: white;
+}
+
+.suggested-user-picture {
+  position: absolute;
+  left: 10px;
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+  border-color: #eff2f1;
+  border-width: 1px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.username-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+}
+
+.centering {
+  margin: 0 auto;
 }

@@ -1,0 +1,42 @@
+.tweet-container {
+  border-style: solid;
+  border-width: 2px;
+  border-radius:2px;
+  border-color: white;
+  margin: 50px 20px;
+  padding: 10px 10px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  width: auto;
+}
+
+.tweet-links-box {
+  position: relative;
+  padding-top: 20px;
+}
+
+.tweet-links {
+  position: absolute;
+  bottom: 1px;
+  right: 10px;
+}
+
+.tweet-content {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: black !important;
+}
+
+.card {
+  height: 30px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  color: white;
+  position: relative;
+}
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}

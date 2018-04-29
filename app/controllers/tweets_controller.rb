@@ -2,8 +2,6 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: [ :show, :destroy ]
 
 
-# User Stories
-# The home page will list all tweets
   def index
     @user = current_user
     @tweets = Tweet.all
@@ -35,7 +33,4 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:content)
   end
-# A user can create a new tweet no more than 140 characters
-# A user can display his tweets or another user's tweets
-# A user can delete a tweet
 end
