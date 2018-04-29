@@ -1,42 +1,68 @@
-<h1>Timeline</h1>
-
-<p>My tweets: <%= current_user.tweets.count %> </p>
-<p>Following: <%= current_user.follow_count %></p>
-<p>Followers: <%= current_user.followers_count %></p>
-
-<% @tweets.each do |tweet| %>
-  <% if tweet.user.followed_by?(current_user) || tweet.user.id == current_user.id %>
-    <%= link_to user_path(tweet.user) do %>
-    <%= image_tag default_image(tweet.user), class: "avatar-picture" %>
-    <% end %>
-    <p>Tweet by:
-      <%= link_to user_path(tweet.user) do %>
-        <%= tweet.user.username %>
-      <% end %>
-      <%= nice_date(tweet.created_at) %>
-      <%= tweet.content %>
-      <%= link_to "Add Comment", tweet_comments_path(tweet)%>
-      <% if tweet.comments.present? %>
-        <%= link_to "#{pluralize(tweet.comments.count, "Comment")}", tweet_comments_path(tweet)%>
-      <% end %>
-      <% if tweet.user.id == current_user.id %>
-        <%= link_to "Delete", tweet_path(tweet), :method => :delete, data: {:confirm => "Are you sure you want to delete your tweet?" } %>
-      <% end %>
-  </p>
-  <% end %>
-<% end %>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h1>Create a new tweet!</h1>
-
-      <%= simple_form_for @tweet do |f| %>
-        <%= f.input :content, label: false %>
-        <%= f.button :submit, "Tweet!" %>
-      <% end %>
-      </div>
-   </div>
+<div class="title">
+  <h1>Timeline</h1>
 </div>
 
+<div class="col-lg-4">
+  <div class="row boxer card_fonts">
+    <%= link_to user_path(current_user) do %>
+      <%= image_tag default_image(current_user), class: "profile-picture" %>
+      <h3><%= current_user.username %></h3>
+    <% end %>
+    <div class="text-center">
+      <table style="margin: 0 auto;">
+        <thead>
+          <th>Tweets</th>
+          <th>Following</th>
+          <th>Followers</th>
+        </thead>
+        <tr>
+          <td><%= current_user.tweets.count %></td>
+          <td><%= current_user.follow_count %></td>
+          <td><%= current_user.followers_count %></td>
+        </tr>
+      </table>
+    </div>
+    <h4>What's on your mind?</h4>
 
+    <%= simple_form_for @tweet do |f| %>
+      <%= f.input :content, label: false, placeholder: "Compose new Tweet..." %>
+      <%= f.button :submit, "Tweet!", class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "Suggested users to follow", users_path %>
+  </div>
+</div>
+
+<div class="col-lg-8">
+  <div class="row tweet-container card_fonts">
+    <% @tweets.each do |tweet| %>
+      <div class="tweet">
+        <div class="user-info">
+          <% if tweet.user.followed_by?(current_user) || tweet.user.id == current_user.id %>
+            <%= link_to user_path(tweet.user) do %>
+              <%= image_tag default_image(tweet.user), class: "avatar-picture" %>
+            <% end %>
+            <%= link_to user_path(tweet.user) do %>
+              <%=tweet.user.username%>
+            <% end %>
+            <%= nice_date(tweet.created_at) %>
+        </div>
+        <div class="tweet-content">
+          <p><%= tweet.content %></p>
+        </div>
+      <div class="tweet-links-box">
+        <div class="tweet-links">
+          <% if tweet.comments.present? %>
+            <%= link_to "#{pluralize(tweet.comments.count, "Comment")}", tweet_comments_path(tweet)%>
+          <% end %>
+          <%= link_to "Add Comment", tweet_comments_path(tweet)%>
+          <% if tweet.user.id == current_user.id %>
+            <%= link_to "Delete", tweet_path(tweet), :method => :delete, data: {:confirm => "Are you sure you want to delete your tweet?" } %>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+<% end %>
+</div>
+</div>

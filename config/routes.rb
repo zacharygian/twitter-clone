@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :comments
   end
-  resources :users, only: [ :show ] do
+  resources :users, only: [ :index, :show ] do
     member do
       get :follow
       get :unfollow

@@ -1,45 +1,45 @@
-<h1>User Profile for <%= @user.username %></h1>
-<p>Tweets: <%= @user.tweets.count %> </p>
-<p>Following: <%= @user.follow_count %></p>
-<p>Followers: <%= @user.followers_count %></p>
+<div class="title">
+  <h1><%= @user.username %>'s profile</h1>
+</div>
 
-
-<% if @user.avatar.url.present? %>
-  <%= image_tag @user.avatar, class: "avatar-picture" %>
-<% else %>
-  <%= image_tag 'twitter_egg.png', class: "avatar-picture" %>
-<% end %>
-
-<% if @user.first_name.present? %>
-<p>First Name: <%= @user.first_name %></p>
-<% end %>
-
-<% if @user.last_name.present? %>
-<p>Last Name: <%= @user.last_name %></p>
-<% end %>
-
-<% if @user.age.present? %>
-<p>Age: <%= @user.age %></p>
-<% end %>
-
-<p>Email: <%= @user.email %></p>
-
-<% if @user.biography.present? %>
-<p>Biography: <%= @user.biography %></p>
-<% end %>
-
-<% if @user.id == current_user.id %>
- <%= link_to edit_user_registration_path do %>
-      <p> Update my profile </p>
- <% end %>
-<% end %>
-
-<% if @user.id != current_user.id  %>
-  <% if @user.followed_by?(current_user) %>
-    <%= link_to "Unfollow", unfollow_user_path(@user) %>
+<div class="profile-card">
+  <% if @user.avatar.url.present? %>
+    <%= image_tag @user.avatar, class: "profile-picture" %>
   <% else %>
-    <%= link_to "Follow", follow_user_path(@user) %>
-  <% end  %>
-<% end  %>
+    <%= image_tag 'twitter_egg.png', class: "profile-picture" %>
+  <% end %>
 
-<%= console %>
+  <h3>
+    <% if @user.first_name.present? %>
+      <%= @user.first_name %>
+    <% end %>
+
+    <% if @user.last_name.present? %>
+      <%= @user.last_name %>
+    <% end %>
+  </h3>
+
+  <% if @user.age.present? %>
+      <p><strong>Age:</strong> <%= @user.age %></p>
+  <% end %>
+
+  <p><strong>Email:</strong> <%= @user.email %></p>
+
+  <% if @user.biography.present? %>
+    <p><strong>Biography:</strong> <%= @user.biography %></p>
+  <% end %>
+  <br>
+  <% if @user.id == current_user.id %>
+    <%= link_to "Update my profile", edit_user_registration_path, class: 'follow-button'%>
+  <% end %>
+
+  <% if @user.id != current_user.id  %>
+    <% if @user.followed_by?(current_user) %>
+        <%= link_to "Unfollow", unfollow_user_path(@user), class: 'follow-button'%>
+    <% else %>
+        <%= link_to "Follow", follow_user_path(@user), class: 'follow-button'%>
+    <% end  %>
+  <% end  %>
+</div>
+
+<%= link_to "Back to my timeline", tweets_path %>
