@@ -6,8 +6,9 @@ Here are the instructions to make it run on your machine:
 
 1. Download the project on your machine.
 2. Open your terminal to the correct filepath where the file was saved.
-3. Run these three commands:
+3. Run these four commands:
     - "bundle install"
+    - "rails db:create"
     - "rails db:migrate"
     - "rails db:seed" (if this step doesn't work, run "rails db:reset")
 4. After that, run "rails s" to start a local server on your machine.
