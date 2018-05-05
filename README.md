@@ -6,12 +6,8 @@ Here are the instructions to make it run on your machine:
 
 1. Download the project on your machine.
 2. Open your terminal to the correct filepath where the file was saved.
-3. Run these four commands:
-    - "bundle install"
-    - "rails db:create"
-    - "rails db:migrate"
-    - "rails db:seed" (if this step doesn't work, run "rails db:reset")
-4. After that, run "rails s" to start a local server on your machine.
+3. Run this command: "bundle && yarn && rails db:setup && rails s"
+4. By running "rails s" you will start a local server on your machine.
 5. In a separate terminal window, run "mailcatcher". This will be needed as the application will require you to confirm your email after sign up. The email will arrive through mailcatcher, which you will have open in a separate tab of your browser.
 6. You should be all set! Launch your browser and go to http://localhost:3000/ for the application. For the confirmation email, go to http://localhost:1080/ in a separate tab. 
 7. Enjoy! 😀
