@@ -6,12 +6,13 @@
   justify-content: center;
   border: solid 1px black;
   margin: 0 auto;
-  width: 500px;
+  width: 380px;
   height: auto;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  background-color: cyan;
+  background-color: lightgray;
   text-align: center;
   padding: 30px;
+  border-radius: 5px;
 }
 
 .profile-picture {
@@ -46,13 +47,13 @@
 
 .boxer table {
   border-collapse: separate;
-  border-spacing: 50px 0;
+  border-spacing: 20px 0;
 }
 
 .profile-card table {
   text-align: center;
   border-collapse: separate;
-  border-spacing: 50px 0;
+  border-spacing: 20px 0;
 }
 
 .separator {

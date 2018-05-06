@@ -2,25 +2,39 @@
   <h1>Leave a comment for...</h1>
 </div>
 
-<div class="comment-box card_fonts">
-  <div class="comment-card">
-    <h2>"<%= @tweet.content %>"</h2>
-    <p><%= @tweet.user.username %></p>
-  </div>
-<% @tweet.comments.each do |comment| %>
-  <%= link_to user_path(comment.user) do %>
-      <%= comment.user.username %>
+<div class="col-sm-6 col-sm-offset-3">
+  <div class="comment-box card_fonts">
+    <div class="comment-card">
+      <h2>"<%= @tweet.content %>"</h2>
+      <%= link_to user_path(@tweet.user) do %>
+        <p><%=@tweet.user.username%></p>
+      <% end %>
+    </div>
+    <% @tweet.comments.each do |comment| %>
+      <%= link_to user_path(comment.user) do %>
+          <%= comment.user.username %>
+      <% end %>
+      <p> <%= comment.text %>
+      <% if comment.user_id == current_user.id %>
+        <%= link_to "Delete", tweet_comment_path(@tweet, comment), :method => :delete, data: {:confirm => "Are you sure you want to delete your comment?" } %>
+        <% end %>
+      </p>
     <% end %>
-    <p> <%= comment.text %>
-  <% if comment.user_id == current_user.id %>
-    <%= link_to "Delete", tweet_comment_path(@tweet, comment), :method => :delete, data: {:confirm => "Are you sure you want to delete your comment?" } %>
-  <% end %>
-  </p>
-<% end %>
-<%= simple_form_for [@tweet, @comment] do |f| %>
-  <%= f.input :text, label: false, placeholder: "Compose new comment..."   %>
-  <%= f.button :submit, "Post Comment!", class: "btn-primary" %>
-<% end %>
+
+    <% if @tweet.user.followed_by?(current_user) || @tweet.user.id == current_user.id %>
+      <%= simple_form_for [@tweet, @comment] do |f| %>
+        <%= f.input :text, label: false, placeholder: "Compose new comment..."   %>
+        <%= f.button :submit, "Post Comment!", class: "btn-primary" %>
+      <% end %>
+    <% else %>
+      <p>You do not follow this user and cannot comment on this tweet.</p>
+    <% end %>
+  </div>
+  <br>
+  <div class="text-center">
+    <%= link_to "Back to my timeline", tweets_path %>
+  </div>
 </div>
 
-<%= link_to "Back to my timeline", tweets_path %>
+
+
