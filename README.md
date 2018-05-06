@@ -9,11 +9,12 @@ Here are the instructions to make it run on your machine:
 3. Run this command: "bundle && yarn && rails db:setup && rails s"
 4. By running "rails s" you will start a local server on your machine.
 5. In a separate terminal window, run "mailcatcher". This will be needed as the application will require you to confirm your email after sign up. The email will arrive through mailcatcher, which you will have open in a separate tab of your browser.
-6. You should be all set! Launch your browser and go to http://localhost:3000/ for the application. For the confirmation email, go to http://localhost:1080/ in a separate tab. 
+6. You should be all set! Launch your browser and go to http://localhost:3000/ for the application. For the confirmation email, go to http://localhost:1080/ in a separate tab and click on the confirmation link in the email that you receive. 
 7. Enjoy! 😀
 
 Here is a detailed list of features:
 
+- The platform is fully responsive and works on any device (desktop, tablet, mobile)
 - A user can sign up to the service with an email, password, and unique username
 - Users need to verify their email before being able to access the rest of the website
 - A user can edit his/her profile 
@@ -21,5 +22,7 @@ Here is a detailed list of features:
 - A user can “follow” and “unfollow” another user
 - A user can list the latest “tweets” from followed users
 - A tweet displays username, avatar of user (both linking to user's profile)
-- A user can comment on a “tweet” with another “tweet” of no more than 140 characters
+- A user can comment on a “tweet” with another “tweet” of no more than 140 characters, 
 - A user can access the comments from a “tweet”
+- A user can only comment on a "tweet" if he follows the user who posted that "tweet"
+- A user can access the user's profile from the "tweet" on the comment page 
