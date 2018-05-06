@@ -17,29 +17,29 @@ User.create!(username: "rita_l", first_name: "Rita" , last_name: "Love", age: "3
 User.create!(username: "maggieishere", first_name: "Maggie" , last_name: "Beasley", age: "28", avatar: Rails.root.join("app/assets/images/maggie.jpg").open, email: 'maggieb@example.com', password: "password")
 User.create!(username: "zacharygian18", first_name: "Zachary" , last_name: "Gian", age: "23", avatar: Rails.root.join("app/assets/images/gian.jpg").open, email: 'zachg@example.com', password: "password")
 
-Tweet.create!(content: "Great game tonight, I'm glad we won!" , user_id: 1)
-Tweet.create!(content: "This platform is pretty cool." , user_id: 1)
+Tweet.create!(content: "Great game tonight, I'm glad we won!" , user_id: 1, created_at: DateTime.new(2018, 5, 02))
+Tweet.create!(content: "This platform is pretty cool." , user_id: 1, created_at: DateTime.new(2018, 5, 01))
 
-Tweet.create!(content: "I wish I was in Tokyo! I really miss the city to be honest..." , user_id: 2)
-Tweet.create!(content: "My friends are always traveling, maybe one day I'll go with them." , user_id: 2)
-Tweet.create!(content: "My phone just fell on the floor, good thing I had a screen protector!!" , user_id: 2)
+Tweet.create!(content: "I wish I was in Tokyo! I really miss the city to be honest..." , user_id: 2, created_at: DateTime.new(2018, 5, 02))
+Tweet.create!(content: "My friends are always traveling, maybe one day I'll go with them." , user_id: 2, created_at: DateTime.new(2018, 5, 03))
+Tweet.create!(content: "My phone just fell on the floor, good thing I had a screen protector!!" , user_id: 2, created_at: DateTime.new(2018, 5, 06))
 
-Tweet.create!(content: "This year will be a good one for me!" , user_id: 3)
-Tweet.create!(content: "I have a lot of things to do but I'm here on Twitter..." , user_id: 3)
+Tweet.create!(content: "This year will be a good one for me!" , user_id: 3, created_at: DateTime.new(2018, 5, 03))
+Tweet.create!(content: "I have a lot of things to do but I'm here on Twitter..." , user_id: 3, created_at: DateTime.new(2018, 4, 28))
 
-Tweet.create!(content: "I'm always on Twitter because this platform is so good!" , user_id: 4)
-Tweet.create!(content: "I met a lot of cool people on here." , user_id: 4)
+Tweet.create!(content: "I'm always on Twitter because this platform is so good!" , user_id: 4, created_at: DateTime.new(2018, 5, 05))
+Tweet.create!(content: "I met a lot of cool people on here." , user_id: 4, created_at: DateTime.new(2018, 5, 04))
 
-Tweet.create!(content: "Hey everyone, I'm new to the platform! How is it going?" , user_id: 4)
-Tweet.create!(content: "My name is Rita but people call me Ri" , user_id: 4)
+Tweet.create!(content: "Hey everyone, I'm new to the platform! How is it going?" , user_id: 4, created_at: DateTime.new(2018, 4, 17))
+Tweet.create!(content: "I have to run errands today... ugh..." , user_id: 4, created_at: DateTime.new(2018, 5, 05))
 
-Tweet.create!(content: "For those who are developers, do you prefer Atom or Sublime?" , user_id: 5)
-Tweet.create!(content: "I just love coding everyday!" , user_id: 5)
+Tweet.create!(content: "For those who are developers, do you prefer Atom or Sublime?" , user_id: 5, created_at: DateTime.new(2018, 4, 25))
+Tweet.create!(content: "I just love coding everyday!" , user_id: 5, created_at: DateTime.new(2018, 5, 02))
 
-Tweet.create!(content: "I love walking around in the city, especially at night!" , user_id: 6)
-Tweet.create!(content: "My co-worker is the best, she brings me coffee every morning!" , user_id: 6)
+Tweet.create!(content: "I love walking around in the city, especially at night!" , user_id: 6, created_at: DateTime.new(2018, 4, 26))
+Tweet.create!(content: "My co-worker is the best, she brings me coffee every morning!" , user_id: 6, created_at: DateTime.new(2018, 4, 27))
 
-Tweet.create!(content: "Hey guys! I'm Zachary but everybody calls me Zach!" , user_id: 7)
-Tweet.create!(content: "I really enjoy watching basketball, and love playing too!" , user_id: 7)
-Tweet.create!(content: "Just came back from Shinjuku, this place is amazing!!" , user_id: 7)
+Tweet.create!(content: "Hey guys! I'm new to this platform, any advice?" , user_id: 7, created_at: DateTime.new(2018, 5, 04))
+Tweet.create!(content: "I really enjoy watching basketball, and love playing too!" , user_id: 7, created_at: DateTime.new(2018, 5, 02))
+Tweet.create!(content: "Just came back from Shinjuku, this place is amazing!!" , user_id: 7, created_at: DateTime.new(2018, 5, 06))
 
